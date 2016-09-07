@@ -1,0 +1,7 @@
+/*!
+ * \defgroup block GNU Radio VLP C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the VLP GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
+
