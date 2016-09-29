@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<block>
+  <name>Poptical_2_Distance_ff</name>
+  <key>optical_2_distance_ff</key>
+  <category>VLP</category>
+  <import>import vlp</import>
+  <make>vlp.poptical_2_distance_ff($lamb_order, $rx_area, $rx_fov, $tx_ampl, $tx_height, $CrxCtx, $Trx_filter)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Lambertian Order</name>
+    <key>lamb_order</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Receiver Area (m^2)</name>
+    <key>rx_area</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Receiver FOV (degrees)</name>
+    <key>rx_fov</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Transmitted Amplitude (V)</name>
+    <key>tx_ampl</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Transmitters' Height (m)</name>
+    <key>tx_height</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Electrial Conversion Constant</name>
+    <key>CrxCtx</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Filter Spectral Transmittance</name>
+    <key>Trx_filter</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in0</name>
+    <type>float</type>
+  </sink>
+  <sink>
+    <name>in1</name>
+    <type>float</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional outputs) -->
+  <source>
+    <name>out0</name>
+    <type>float</type>
+  </source>
+  <source>
+    <name>z</name>
+    <type>float</type>
+  </source>
+
+</block>

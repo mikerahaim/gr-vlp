@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<block>
+  <name>trilat_fixed_4in_ff</name>
+  <key>vlp_trilat_fixed_4in_ff</key>
+  <category>VLP</category>
+  <import>import vlp</import>
+  <make>vlp.trilat_fixed_4in_ff($tx1_coords, $tx2_coords, $tx3_coords, $tx4_coords)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>TX1 Coordinates</name>
+    <key>tx1_coords</key>
+    <type>real_vector</type>
+  </param>
+  <param>
+    <name>TX2 Coordinates</name>
+    <key>tx2_coords</key>
+    <type>real_vector</type>
+  </param>
+  <param>
+    <name>TX3 Coordinates</name>
+    <key>tx3_coords</key>
+    <type>real_vector</type>
+  </param>
+  <param>
+    <name>TX4 Coordinates</name>
+    <key>tx4_coords</key>
+    <type>real_vector</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in0</name>
+    <!-- <name>sqrd_r1</name> -->
+    <type>float</type>
+  </sink>
+  <sink>
+    <name>in1</name>
+    <type>float</type>
+  </sink>
+  <sink>
+    <name>in2</name>
+    <type>float</type>
+  </sink>
+  <sink>
+    <name>in3</name>
+    <type>float</type>
+  </sink>
+  <sink>
+    <name>z_in</name>
+    <type>float</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>x</name>
+    <type>float</type>
+  </source>
+  <source>
+    <name>y</name>
+    <type>float</type>
+  </source>
+  <source>
+    <name>z</name>
+    <type>float</type>
+  </source>
+  <!-- <source>
+    <name>h_fb</name>
+    <type>float</type>
+  </source>
+  <source>
+    <name>flag</name>
+    <type>int</type>
+  </source> -->
+</block>

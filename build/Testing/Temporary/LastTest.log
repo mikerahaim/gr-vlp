@@ -1,0 +1,130 @@
+Start testing: Sep 29 15:16 EDT
+----------------------------------------------------------
+1/5 Testing: qa_poptical_2_distance_ff
+1/5 Test: qa_poptical_2_distance_ff
+Command: "/bin/sh" "/home/rich/Desktop/vlp_repos/gr-vlp/build/python/qa_poptical_2_distance_ff_test.sh"
+Directory: /home/rich/Desktop/vlp_repos/gr-vlp/build/python
+"qa_poptical_2_distance_ff" start time: Sep 29 15:16 EDT
+Output:
+----------------------------------------------------------
+gr::log :INFO: controlport - Apache Thrift: -h rich-HP-Pavilion-dv7-Notebook-PC -p 44240
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"qa_poptical_2_distance_ff" end time: Sep 29 15:16 EDT
+"qa_poptical_2_distance_ff" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: qa_trilat_fixed_4in_ff
+2/5 Test: qa_trilat_fixed_4in_ff
+Command: "/bin/sh" "/home/rich/Desktop/vlp_repos/gr-vlp/build/python/qa_trilat_fixed_4in_ff_test.sh"
+Directory: /home/rich/Desktop/vlp_repos/gr-vlp/build/python
+"qa_trilat_fixed_4in_ff" start time: Sep 29 15:16 EDT
+Output:
+----------------------------------------------------------
+gr::log :INFO: controlport - Apache Thrift: -h rich-HP-Pavilion-dv7-Notebook-PC -p 44429
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"qa_trilat_fixed_4in_ff" end time: Sep 29 15:16 EDT
+"qa_trilat_fixed_4in_ff" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: qa_error_distance
+3/5 Test: qa_error_distance
+Command: "/bin/sh" "/home/rich/Desktop/vlp_repos/gr-vlp/build/python/qa_error_distance_test.sh"
+Directory: /home/rich/Desktop/vlp_repos/gr-vlp/build/python
+"qa_error_distance" start time: Sep 29 15:16 EDT
+Output:
+----------------------------------------------------------
+gr::log :INFO: controlport - Apache Thrift: -h rich-HP-Pavilion-dv7-Notebook-PC -p 41769
+F
+======================================================================
+FAIL: test_001_t (__main__.qa_error_distance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rich/Desktop/vlp_repos/gr-vlp/python/qa_error_distance.py", line 52, in test_001_t
+    self.assertFloatTuplesAlmostEqual (expected_result, result_data, 6)
+  File "/home/rich/Desktop/repos2/target/lib/python2.7/dist-packages/gnuradio/gr_unittest.py", line 90, in assertFloatTuplesAlmostEqual
+    self.assertAlmostEqual (a[i], b[i], places, msg)
+AssertionError: 2 != 1.4142135381698608 within 6 places
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+FAILED (failures=1)
+(2, 2, 2)
+(1.4142135381698608, 1.4142135381698608, 1.4142135381698608)
+(2, 2, 2)
+(1.4142135381698608, 1.4142135381698608, 1.4142135381698608)
+<end of output>
+Test time =   0.59 sec
+----------------------------------------------------------
+Test Failed.
+"qa_error_distance" end time: Sep 29 15:16 EDT
+"qa_error_distance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: qa_Algorithm2
+4/5 Test: qa_Algorithm2
+Command: "/bin/sh" "/home/rich/Desktop/vlp_repos/gr-vlp/build/python/qa_Algorithm2_test.sh"
+Directory: /home/rich/Desktop/vlp_repos/gr-vlp/build/python
+"qa_Algorithm2" start time: Sep 29 15:16 EDT
+Output:
+----------------------------------------------------------
+gr::log :INFO: controlport - Apache Thrift: -h rich-HP-Pavilion-dv7-Notebook-PC -p 39623
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+Segmentation fault (core dumped)
+<end of output>
+Test time =   0.85 sec
+----------------------------------------------------------
+Test Failed.
+"qa_Algorithm2" end time: Sep 29 15:16 EDT
+"qa_Algorithm2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: qa_Distance
+5/5 Test: qa_Distance
+Command: "/bin/sh" "/home/rich/Desktop/vlp_repos/gr-vlp/build/python/qa_Distance_test.sh"
+Directory: /home/rich/Desktop/vlp_repos/gr-vlp/build/python
+"qa_Distance" start time: Sep 29 15:16 EDT
+Output:
+----------------------------------------------------------
+E
+======================================================================
+ERROR: test_001_t (__main__.qa_Distance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rich/Desktop/vlp_repos/gr-vlp/python/qa_Distance.py", line 48, in test_001_t
+    distance = Distance (60, 0.098, 3, 1, 1.5, 90, 40, 1)
+TypeError: __init__() takes exactly 14 arguments (9 given)
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)
+<end of output>
+Test time =   0.37 sec
+----------------------------------------------------------
+Test Failed.
+"qa_Distance" end time: Sep 29 15:16 EDT
+"qa_Distance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 29 15:16 EDT

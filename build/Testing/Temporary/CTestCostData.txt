@@ -1,0 +1,9 @@
+qa_poptical_2_distance_ff 19 0.0305714
+qa_trilat_fixed_4in_ff 19 0.0306983
+qa_error_distance 0 0
+qa_Algorithm2 3 0
+qa_Distance 0 0
+---
+qa_error_distance
+qa_Algorithm2
+qa_Distance

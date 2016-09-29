@@ -1,0 +1,5 @@
+<testsuite errors="0" failures="0" name="unittest.suite.TestSuite" tests="1" time="0.204">
+  <testcase classname="__main__.qa_poptical_2_distance_ff" name="test_001_t" time="0.2035"></testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
