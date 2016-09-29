@@ -31,10 +31,13 @@ except ImportError:
 	pass
 
 # import any pure python here
+<<<<<<< HEAD
 from poptical_2_distance_ff import poptical_2_distance_ff
 from trilat_fixed_4in_ff import trilat_fixed_4in_ff
 
 
 
 
+=======
+>>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 #

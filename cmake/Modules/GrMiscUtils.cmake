@@ -363,7 +363,10 @@ macro(GR_EXPAND_X_H component root)
 
 import sys, os, re
 sys.path.append('${GR_RUNTIME_PYTHONPATH}')
+<<<<<<< HEAD
 sys.path.append('${CMAKE_SOURCE_DIR}/python')
+=======
+>>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 os.environ['srcdir'] = '${CMAKE_CURRENT_SOURCE_DIR}'
 os.chdir('${CMAKE_CURRENT_BINARY_DIR}')
 
@@ -407,7 +410,10 @@ macro(GR_EXPAND_X_CC_H component root)
 
 import sys, os, re
 sys.path.append('${GR_RUNTIME_PYTHONPATH}')
+<<<<<<< HEAD
 sys.path.append('${CMAKE_SOURCE_DIR}/python')
+=======
+>>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 os.environ['srcdir'] = '${CMAKE_CURRENT_SOURCE_DIR}'
 os.chdir('${CMAKE_CURRENT_BINARY_DIR}')
 
@@ -468,7 +474,10 @@ macro(GR_EXPAND_X_CC_H_IMPL component root)
 
 import sys, os, re
 sys.path.append('${GR_RUNTIME_PYTHONPATH}')
+<<<<<<< HEAD
 sys.path.append('${CMAKE_SOURCE_DIR}/python')
+=======
+>>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 os.environ['srcdir'] = '${CMAKE_CURRENT_SOURCE_DIR}'
 os.chdir('${CMAKE_CURRENT_BINARY_DIR}')
 
