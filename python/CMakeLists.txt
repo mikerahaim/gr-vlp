@@ -31,12 +31,15 @@ endif()
 GR_PYTHON_INSTALL(
     FILES
     __init__.py
-<<<<<<< HEAD
+
     poptical_2_distance_ff.py
     trilat_fixed_4in_ff.py
-=======
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
-    DESTINATION ${GR_PYTHON_DIR}/vlp
+
+
+    Distance.py
+    proto_distance_ff.py
+    #Channel_model.py
+    Algorithm2.py DESTINATION ${GR_PYTHON_DIR}/vlp
 )
 
 ########################################################################
@@ -46,8 +49,9 @@ include(GrTest)
 
 set(GR_TEST_TARGET_DEPS gnuradio-vlp)
 set(GR_TEST_PYTHON_DIRS ${CMAKE_BINARY_DIR}/swig)
-<<<<<<< HEAD
+
 GR_ADD_TEST(qa_poptical_2_distance_ff ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_poptical_2_distance_ff.py)
 GR_ADD_TEST(qa_trilat_fixed_4in_ff ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_trilat_fixed_4in_ff.py)
-=======
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
+GR_ADD_TEST(qa_Distance ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_Distance.py)
+GR_ADD_TEST(qa_proto_distance_ff ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_proto_distance_ff.py)
+GR_ADD_TEST(qa_Algorithm2 ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_Algorithm2.py)

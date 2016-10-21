@@ -82,7 +82,8 @@ class trilat_fixed_4in_ff(gr.sync_block):
     # the newly created object; in other class methods, it refers to the
     # instance whose method was created.
     # (In OOP, a method is a function associated with an object)
-    def __init__(self, tx1_coords = numpy.zeros(3, dtype=numpy.float32),\
+    def __init__(self,
+    		       tx1_coords = numpy.zeros(3, dtype=numpy.float32),\
                        tx2_coords = numpy.zeros(3, dtype=numpy.float32),\
                        tx3_coords = numpy.zeros(3, dtype=numpy.float32),\
                        tx4_coords = numpy.zeros(3, dtype=numpy.float32)):
@@ -112,6 +113,41 @@ class trilat_fixed_4in_ff(gr.sync_block):
         # explicitly. Most things in Python need to be done explicitly ...)
         gr.sync_block.__init__(self,
             name="trilat_fixed_4in_ff",
+            # 5 scalar inputs; d^2 to each TX and z_in used in d^2 calculation
+            in_sig=[numpy.float32, numpy.float32, numpy.float32, numpy.float32, numpy.float32],
+            out_sig=[numpy.float32, numpy.float32, numpy.float32])    ###### UPDATE THIS AS YOU CHANGE OUTPUT ITEMS !!!!!!
+
+
+    def __init__(self, tx1_coords = numpy.zeros(3, dtype=numpy.float32),\
+                       tx2_coords = numpy.zeros(3, dtype=numpy.float32),\
+                       tx3_coords = numpy.zeros(3, dtype=numpy.float32),\
+                       tx4_coords = numpy.zeros(3, dtype=numpy.float32)):
+        # Above, I initialize an N=3-dimensional python array to three 32-bit
+        # single precision zeros for (x=0.0, y=0.0, z=0.0) until updated by GRC
+        self.tx1_coords = tx1_coords
+        self.tx2_coords = tx2_coords
+        self.tx3_coords = tx3_coords
+        self.tx4_coords = tx4_coords
+        # sqrd_d_i_r is the squared distance between reference point r and beacon i
+        # In this algorithm, I will use beacon 1 as my reference point
+        self.sqrd_d_2_1 = numpy.square(tx2_coords[0]-tx1_coords[0])\
+                          + numpy.square(tx2_coords[1]-tx1_coords[1])\
+                          + numpy.square(tx2_coords[2]-tx1_coords[2])
+        self.sqrd_d_3_1 = numpy.square(tx3_coords[0]-tx1_coords[0])\
+                          + numpy.square(tx3_coords[1]-tx1_coords[1])\
+                          + numpy.square(tx3_coords[2]-tx1_coords[2])
+        self.sqrd_d_4_1 = numpy.square(tx4_coords[0]-tx1_coords[0])\
+                          + numpy.square(tx4_coords[1]-tx1_coords[1])\
+                          + numpy.square(tx4_coords[2]-tx1_coords[2])
+        # I will initialize the coefficient matrix A while still in scope of tx
+        # coords - to eliminate need to add "self" later and reduce readability
+        self.A = numpy.array([[tx2_coords[0]-tx1_coords[0], tx2_coords[1]-tx1_coords[1], tx2_coords[2]-tx1_coords[2]],\
+                              [tx3_coords[0]-tx1_coords[0], tx3_coords[1]-tx1_coords[1], tx3_coords[2]-tx1_coords[2]],\
+                              [tx4_coords[0]-tx1_coords[0], tx4_coords[1]-tx1_coords[1], tx4_coords[2]-tx1_coords[2]]])
+        # The parent constructor is called (in Python, this needs to be done
+        # explicitly. Most things in Python need to be done explicitly ...)
+        gr.sync_block.__init__(self,
+            name="Trilat_fixed4in_ff",
             # 5 scalar inputs; d^2 to each TX and z_in used in d^2 calculation
             in_sig=[numpy.float32, numpy.float32, numpy.float32, numpy.float32, numpy.float32],
             out_sig=[numpy.float32, numpy.float32, numpy.float32])    ###### UPDATE THIS AS U CHANGE OUTPUT ITEMS !!!!!!

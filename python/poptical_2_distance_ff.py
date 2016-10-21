@@ -33,7 +33,7 @@
 import numpy
 from gnuradio import gr
 
-# Define a class called "poptical_2_distance_ff" which is derived from another class, gr.sync_block. 
+# Define a class called "Poptical_2_Distance_ff" which is derived from another class, gr.sync_block. 
 class poptical_2_distance_ff(gr.sync_block):
     """ The Poptical_2_Distance_ff block
     This is a sync block with 2 inputs and 1 output.
@@ -85,7 +85,7 @@ class poptical_2_distance_ff(gr.sync_block):
     illumination seen through the filter. Assume 1 for no filter.
     """
     # The (private) member function "__init__()" is called immediatly to
-    # initialize the poptical_2_distance_ff class - which already exist.
+    # initialize the Poptical_2_Distance_ff class - which already exist.
     # The first argument of every class method, including __init__, is always
     # a reference to the current instance of the class. By convention, this
     # argument is always named self. In the __init__ method, self refers to
@@ -114,7 +114,7 @@ class poptical_2_distance_ff(gr.sync_block):
         # The parent constructor is called (in Python, this needs to be done
         # explicitly. Most things in Python need to be done explicitly ...)
         gr.sync_block.__init__(self,
-            name="poptical_2_distance_ff",
+            name="Poptical_2_Distance_ff",
             # 2 scalar inputs; 1 for p_optical. 1 for height_fb
             in_sig=[numpy.float32, numpy.float32],
             # 2 scalar outputs; 1 for distance (or radius from TX point), 1 for z element of RX
@@ -123,28 +123,26 @@ class poptical_2_distance_ff(gr.sync_block):
 
     def work(self, input_items, output_items):
         # This is the DC filtered (Fc = 700Hz) input to the receive USRP
-        in0 = input_items[0]
+        rx_opt_power = input_items[0]
         # This is the height feedback input to the GRC block
         # In case the receiver will be at a fixed height, input a constant
-        in1 = input_items[1]
+        height_fb = input_items[1]
         # This is the distance output of the block in meters
         out0 = output_items[0]
         # This is the distance output of the block in meters
         z = output_items[1]
         # <+signal processing here+>
-        # According to erro i got about code below:
+        # According to error i got about code below:
         ## ValueError: The truth value of an array with more than one element is ambiguous.
         ## Use a.any() or a.all()
-##        if in1 == 0:    # if height input = 0
-##            in1 = 1	# make it one. Useful for initialization flow purposes
-
-	# Initialize maximum height violation error check variable to false
+##        if height_fb == 0:    # if height input = 0
+##            height_fb = 1	# make it one. Useful for initialization flow purposes
+        # Initialize maximum height violation error check variable to false
         self.above_max_height = 0
         # Error checking on the height (Not doing anything yet if it's wrong)
-        if height_fb > self.tx_height:
+        if height_fb.any() > self.tx_height:
             self.above_max_height = 1   # will eventually be used to warn the user etc.
-	height_fb = self.tx_height # overriding the height feedback to real max
-
+            height_fb = self.tx_height  # overriding the height feedback to real max
         # There is no concentrator (cpc) lens in the design - so assume gain=1
         cpc_gain = 1.0
         # The following is the constant part of distance algorithm - see log
@@ -152,10 +150,13 @@ class poptical_2_distance_ff(gr.sync_block):
                       *self.Trx_filter*(self.lamb_order+1.0)/(2.0*numpy.pi))
         # Distance^2 = ..., because next steps needs d^2. )
         # The 0.75 (instead of 1) is a calibration factor from Consuelo's work
-        out0[:] = numpy.power(((self.factor/in0)*numpy.power((self.tx_height - in1),\
-                                                            (self.lamb_order+1.0))\
-                              ), (2.0/(self.lamb_order+3.00)))                          # 2.75 here. 0.75 above
+        out0[:] = numpy.power(((self.factor/rx_opt_power)*\
+                               numpy.power(height_fb,(self.lamb_order+1.0))\
+                              ), (2.0/(self.lamb_order+3.00)))          # 2.75 here. 0.75 above
         # Pass through the distance input, should update after 1 block delay
         z[:] = height_fb
         return len(output_items[0])
+
+ 
+
 

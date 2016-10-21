@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Copyright 2011,2012,2014,2016 Free Software Foundation, Inc.
-=======
-# Copyright 2011,2012,2014 Free Software Foundation, Inc.
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 #
 # This file is part of GNU Radio
 #
@@ -24,19 +20,18 @@
 ########################################################################
 # Project setup
 ########################################################################
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 project(gr-vlp CXX C)
+cmake_policy(SET CMP0054 OLD)
+cmake_policy(SET CMP0045 OLD)
 enable_testing()
 
-<<<<<<< HEAD
 #install to PyBOMBS target prefix if defined
 if(DEFINED ENV{PYBOMBS_PREFIX})
     set(CMAKE_INSTALL_PREFIX $ENV{PYBOMBS_PREFIX})
     message(STATUS "PyBOMBS installed GNU Radio. Setting CMAKE_INSTALL_PREFIX to $ENV{PYBOMBS_PREFIX}")
 endif()
 
-=======
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 #select the release build type by default to get optimization flags
 if(NOT CMAKE_BUILD_TYPE)
    set(CMAKE_BUILD_TYPE "Release")
@@ -47,15 +42,12 @@ set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE} CACHE STRING "")
 #make sure our local CMake Modules path comes first
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
-<<<<<<< HEAD
 # Set the version information here
 set(VERSION_INFO_MAJOR_VERSION 1)
 set(VERSION_INFO_API_COMPAT    0)
 set(VERSION_INFO_MINOR_VERSION 0)
 set(VERSION_INFO_MAINT_VERSION git)
 
-=======
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 ########################################################################
 # Compiler specific setup
 ########################################################################
@@ -134,11 +126,8 @@ find_package(Doxygen)
 # API compatible version required.
 set(GR_REQUIRED_COMPONENTS RUNTIME)
 find_package(Gnuradio "3.7.2" REQUIRED)
-<<<<<<< HEAD
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 include(GrVersion)
-=======
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
 
 if(NOT CPPUNIT_FOUND)
     message(FATAL_ERROR "CppUnit required to compile vlp")

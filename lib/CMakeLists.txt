@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 # Copyright 2011,2012,2016 Free Software Foundation, Inc.
-=======
+
 # Copyright 2011,2012 Free Software Foundation, Inc.
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
+
 #
 # This file is part of GNU Radio
 #
@@ -51,16 +51,16 @@ endif(APPLE)
 ########################################################################
 # Install built library files
 ########################################################################
-<<<<<<< HEAD
+
 include(GrMiscUtils)
 GR_LIBRARY_FOO(gnuradio-vlp RUNTIME_COMPONENT "vlp_runtime" DEVEL_COMPONENT "vlp_devel")
-=======
+
 install(TARGETS gnuradio-vlp
     LIBRARY DESTINATION lib${LIB_SUFFIX} # .so/.dylib file
     ARCHIVE DESTINATION lib${LIB_SUFFIX} # .lib file
     RUNTIME DESTINATION bin              # .dll file
 )
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
+
 
 ########################################################################
 # Build and register unit test
@@ -85,7 +85,7 @@ target_link_libraries(
 )
 
 GR_ADD_TEST(test_vlp test-vlp)
-<<<<<<< HEAD
+
 
 ########################################################################
 # Print summary
@@ -93,5 +93,5 @@ GR_ADD_TEST(test_vlp test-vlp)
 message(STATUS "Using install prefix: ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "Building for version: ${VERSION} / ${LIBVER}")
 
-=======
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
+
+

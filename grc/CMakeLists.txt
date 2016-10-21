@@ -16,13 +16,16 @@
 # along with GNU Radio; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
-<<<<<<< HEAD
+
 install(FILES
     vlp_poptical_2_distance_ff.xml
     vlp_trilat_fixed_4in_ff.xml
-=======
+    #vlp_Channel_model.xml
+    vlp_Algorithm2.xml DESTINATION share/gnuradio/grc/blocks
+    )
+
 
 install(FILES
->>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
-    DESTINATION share/gnuradio/grc/blocks
+    vlp_Distance.xml
+    vlp_proto_distance_ff.xml DESTINATION share/gnuradio/grc/blocks
 )
