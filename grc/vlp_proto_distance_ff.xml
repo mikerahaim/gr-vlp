@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<block>
+  <name>proto_distance_ff</name>
+  <key>vlp_proto_distance_ff</key>
+  <category>VLP</category>
+  <import>import vlp</import>
+  <make>vlp.proto_distance_ff($lamb_order, $rx_area, $FOV, $tx_ampl, $CrxCtx, $Htx, $Trx_filter, $cpc_gain, $Hrx)</make>
+  <param>
+    <name>Lambertian Order</name>
+    <key>lamb_order</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Receiver Area (m^2)</name>
+    <key>rx_area</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Receiver FOV (degrees)</name>
+    <key>FOV</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Transmitted Amplitude (V)</name>
+    <key>tx_ampl</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Transmitters' Height (m)</name>
+    <key>Htx</key>
+    <type>float</type>
+  </param>
+  <param>
+  <name> Reciever's Height (m)</name>
+  <key>Hrx</key>
+  <type>float</type>
+  </param>
+  <param>
+    <name>Electrial Conversion Constant</name>
+    <key>CrxCtx</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Filter Spectral Transmittance</name>
+    <key>Trx_filter</key>
+    <type>float</type>
+  </param>
+  <param>
+  <name>CPC Gain </name>
+  <key>cpc_gain</key>
+  <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in0</name>
+    <type>float</type>
+  </sink>
+
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional outputs) -->
+  <source>
+    <name>D^2</name>
+    <type>float</type>
+  </source>
+ 
+</block>
