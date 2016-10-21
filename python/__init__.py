@@ -31,7 +31,11 @@ except ImportError:
 	pass
 
 # import any pure python here
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 7df73d29281864154782758b8eab95ed0881a9e6
 from poptical_2_distance_ff import poptical_2_distance_ff
 from trilat_fixed_4in_ff import trilat_fixed_4in_ff
 from Distance import Distance
@@ -43,4 +47,9 @@ from Algorithm2 import Algorithm2
 
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 670f541455fc2a4e38b7cf895dcf57851449c82d
+>>>>>>> 7df73d29281864154782758b8eab95ed0881a9e6
 #
