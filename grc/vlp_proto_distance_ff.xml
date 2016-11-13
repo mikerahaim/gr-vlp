@@ -2,9 +2,11 @@
 <block>
   <name>proto_distance_ff</name>
   <key>vlp_proto_distance_ff</key>
-  <category>VLP</category>
+ <category>[vlp]</category>
   <import>import vlp</import>
   <make>vlp.proto_distance_ff($lamb_order, $rx_area, $FOV, $tx_ampl, $CrxCtx, $Htx, $Trx_filter, $cpc_gain, $Hrx)</make>
+  <callback>set_hrx($Hrx)</callback>
+  
   <param>
     <name>Lambertian Order</name>
     <key>lamb_order</key>
@@ -51,25 +53,17 @@
   <type>float</type>
   </param>
 
-  <!-- Make one 'sink' node per input. Sub-nodes:
-       * name (an identifier for the GUI)
-       * type
-       * vlen
-       * optional (set to 1 for optional inputs) -->
+
   <sink>
     <name>in0</name>
     <type>float</type>
   </sink>
 
 
-  <!-- Make one 'source' node per output. Sub-nodes:
-       * name (an identifier for the GUI)
-       * type
-       * vlen
-       * optional (set to 1 for optional outputs) -->
   <source>
     <name>D^2</name>
     <type>float</type>
   </source>
  
 </block>
+

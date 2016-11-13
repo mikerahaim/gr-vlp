@@ -2,7 +2,7 @@
 <block>
   <name>Poptical_2_Distance_ff</name>
   <key>optical_2_distance_ff</key>
-  <category>VLP</category>
+  <category>[vlp]</category>
   <import>import vlp</import>
   <make>vlp.poptical_2_distance_ff($lamb_order, $rx_area, $rx_fov, $tx_ampl, $tx_height, $CrxCtx, $Trx_filter)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.

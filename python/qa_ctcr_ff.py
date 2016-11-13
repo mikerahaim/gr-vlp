@@ -21,9 +21,9 @@
 
 from gnuradio import gr, gr_unittest
 from gnuradio import blocks
-from Distance import Distance
+from ctcr_ff import ctcr_ff
 
-class qa_Distance (gr_unittest.TestCase):
+class qa_ctcr_ff (gr_unittest.TestCase):
 
     def setUp (self):
         self.tb = gr.top_block ()
@@ -33,9 +33,26 @@ class qa_Distance (gr_unittest.TestCase):
 
     def test_001_t (self):
         # set up fg
-        self.tb.run ()
+        src_data = (.0818, .0826, .0856, .0744)
+        expected_result = (1.37567, 1.37229, 1.42732, 1.21687)
+        src = blocks.vector_source_f(src_data)
+        #Ptx, lamb_order, Htx, Hrx
+        ctcr = ctcr_ff(.7, 1, 1.375, 0)
+        snk = blocks.vector_sink_f()
+        self.tb.connect(src, ctcr)
+        self.tb.connect(ctcr, snk)
+        self.tb.run()
+        result_data = snk.data()
+        print("Expected Results")
+        print(expected_result)
+        print("Calculated results")
+        print(result_data)
         # check data
+        self.assertFloatTuplesAlmostEqual (expected_result, result_data, 6)
+
+        
+        
 
 
 if __name__ == '__main__':
-    gr_unittest.run(qa_Distance, "qa_Distance.xml")
+    gr_unittest.run(qa_ctcr_ff, "qa_ctcr_ff.xml")

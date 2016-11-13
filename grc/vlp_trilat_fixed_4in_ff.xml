@@ -2,7 +2,7 @@
 <block>
   <name>trilat_fixed_4in_ff</name>
   <key>vlp_trilat_fixed_4in_ff</key>
-  <category>VLP</category>
+  <category>[vlp]</category>
   <import>import vlp</import>
   <make>vlp.trilat_fixed_4in_ff($tx1_coords, $tx2_coords, $tx3_coords, $tx4_coords)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
