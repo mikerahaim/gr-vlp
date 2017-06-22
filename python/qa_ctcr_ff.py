@@ -33,20 +33,21 @@ class qa_ctcr_ff (gr_unittest.TestCase):
 
     def test_001_t (self):
         # set up fg
-        src_data = (.0818, .0826, .0856, .0744)
-        expected_result = (1.37567, 1.37229, 1.42732, 1.21687)
+        src_data = (.1,.125,.15,.175)
+        expected_result = (.879646,1.0995575,1.319469,1.539380)
         src = blocks.vector_source_f(src_data)
         #Ptx, lamb_order, Htx, Hrx
-        ctcr = ctcr_ff(.7, 1, 1.375, 0)
+        ctcr = ctcr_ff(.7, 1, 1.4, 0)
         snk = blocks.vector_sink_f()
         self.tb.connect(src, ctcr)
         self.tb.connect(ctcr, snk)
         self.tb.run()
-        result_data = snk.data()
+        result_data = snk.data()       
         print("Expected Results")
         print(expected_result)
         print("Calculated results")
         print(result_data)
+        
         # check data
         self.assertFloatTuplesAlmostEqual (expected_result, result_data, 6)
 
